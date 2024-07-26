@@ -22,4 +22,8 @@ class PersonaController extends Controller
         $persona = Personas::findOrFail($id);
         $persona->delete();
     }
+    public function buscar($id){
+        $persona = Personas::findOrFail($id);
+        return response()->json($persona);
+    }
 }
