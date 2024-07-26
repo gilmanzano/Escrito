@@ -7,7 +7,7 @@ use App\Models\Personas;
 class PersonaController extends Controller
 {
     public function listar(){
-        $personas = Personas::whereall();   
-        return response()->json($personas);
+        $personas = Personas::all();
+        return view('listado', compact('personas'));
     }
 }
