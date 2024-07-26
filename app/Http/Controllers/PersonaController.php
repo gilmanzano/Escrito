@@ -10,4 +10,12 @@ class PersonaController extends Controller
         $personas = Personas::all();
         return view('listado', compact('personas'));
     }
+    public function alta(Request $request){
+
+        $persona  = new Personas();
+        $persona -> nombre = $request -> post("nombre");
+        $persona -> apellido = $request -> post("apellido");
+        $persona -> telefono = $request -> post("telefono");
+        $persona->save();
+    }
 }
