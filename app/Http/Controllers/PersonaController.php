@@ -22,6 +22,13 @@ class PersonaController extends Controller
         $persona = Personas::findOrFail($id);
         $persona->delete();
     }
+    public function modificacion(Request $request, $id){
+        $persona = Personas::findOrFail($id);
+        $persona -> nombre = $request -> post("nombre");
+        $persona -> apellido = $request -> post("apellido");
+        $persona -> telefono = $request -> post("telefono");
+        $persona->save();
+    }
     public function buscar($id){
         $persona = Personas::findOrFail($id);
         return response()->json($persona);
