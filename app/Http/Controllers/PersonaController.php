@@ -18,4 +18,8 @@ class PersonaController extends Controller
         $persona -> telefono = $request -> post("telefono");
         $persona->save();
     }
+    public function baja($id){
+        $persona = Personas::findOrFail($id);
+        $persona->delete();
+    }
 }
